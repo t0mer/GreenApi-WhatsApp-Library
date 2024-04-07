@@ -7,11 +7,13 @@
 class GreenApi {
   public:
     GreenApi(const char* instanceId, const char* instanceToken);
-    void sendMessage(const char* target, const char* message);
+    void sendMessage(const char* target, const char* message); // Remove extra qualification
   private:
     String _urlBase;
-    const char* _instanceId;    // Changed to const char* for better memory management
-    const char* _instanceToken; // Changed to const char* for better memory management
+    const char* _instanceId;    
+    const char* _instanceToken;
 };
+
+
 
 #endif
