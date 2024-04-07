@@ -7,7 +7,7 @@ GreenApi::GreenApi(const char* instanceId, const char* instanceToken) {
 }
 
 
-void GreenApi::sendMessage(const char* target, const char* message) {
+bool GreenApi::sendMessage(const char* target, const char* message) {
     // Create the payload as a String
     String payload = "{\"chatId\": \"" + String(target) + "\", \"message\": \"" + String(message) + "\"}";
 
@@ -22,12 +22,10 @@ void GreenApi::sendMessage(const char* target, const char* message) {
 
     if (httpResponseCode > 0) {
         String response = http.getString();
-        Serial.println("Response:");
-        Serial.println(response);
+        http.end();
+        return true; // Return true if HTTP request is successful
     } else {
-        Serial.print("Error on sending POST: ");
-        Serial.println(httpResponseCode);
+        http.end();
+        return false; // Return false if HTTP request fails
     }
-
-    http.end();
 }
