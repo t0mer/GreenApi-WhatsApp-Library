@@ -10,7 +10,7 @@ The GreenApi library provides a simple interface to interact with the Green-API 
 
 To use the GreenApi library in your Arduino projects, follow these steps:
 
-1. Download the latest release of the GreenApi library from the [GitHub releases page](https://github.com/your_username/GreenApi/releases).
+1. Download the latest release of the GreenApi library from the [GitHub releases page](https://github.com/t0mer/GreenApi-WhatsApp-Library/releases).
 2. Extract the downloaded ZIP file.
 3. Move the extracted folder to the `libraries` directory in your Arduino sketchbook.
 4. Restart the Arduino IDE.
