@@ -28,7 +28,7 @@ const char* ssid = "YourWiFiSSID";
 const char* password = "YourWiFiPassword";
 const char* instanceId = "YourInstanceId";
 const char* instanceToken = "YourInstanceToken";
-const char* target = "11001234567@c.us";
+const char* target = "YourChatId";
 const char* message = "Hello, this is a test message from my new library!";
 
 // Create an instance of the GreenApi class
