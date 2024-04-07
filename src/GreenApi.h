@@ -7,7 +7,7 @@
 class GreenApi {
   public:
     GreenApi(const char* instanceId, const char* instanceToken);
-    bool sendMessage(const char* target, const char* message); // Remove extra qualification
+    String sendMessage(const char* target, const char* message); // Remove extra qualification
   private:
     String _urlBase;
     const char* _instanceId;    
