@@ -6,7 +6,58 @@ The GreenApi Arduino Library allows you to easily send WhatsApp messages from yo
 
 The GreenApi library provides a simple interface to interact with the Green-API service for sending WhatsApp messages. It abstracts away the complexities of HTTP requests and JSON formatting, allowing you to focus on your project's functionality.
 
-## Installation
+
+## Getting started
+
+### Setup Green API account
+Nevigate to [https://green-api.com/en](https://green-api.com/en) and register for a new account:
+![Register](screenshots/register.png)
+
+Fill up your details and click on **Register**:
+![Create Account](screenshots/create_acoount.png)
+
+
+Next, click on the "Create an instance":
+![Create Instance](screenshots/create_instance.png)
+
+
+Select the "Developer" instance (Free):
+![Developer Instance](screenshots/developer_instance.png)
+
+
+Copy the InstanceId and Token, we need it for the integration settings:
+![Instance Details](screenshots/instance_details.png)
+
+Next, Lets connect our whatsapp with green-api. On the left side, Under API --> Account, click on QR and copy the QR URL to the browser and click on "Scan QR code"
+
+![Send QR](screenshots/send_qr.png)
+
+![Scan QR](screenshots/scan_qr.png)
+
+Next, Scan the QR code to link you whatsapp with Green API:
+
+![QR Code](screenshots/qr.png)
+
+After the account link, you will notice that the instance is active by the green light in the instance header:
+![Active Instance](screenshots/active_instance.png)
+
+
+
+### Getting the Contacts and Groups
+Before we can start messaging, we need to get the Contact/Group details. we can do it using Green API endpoint.
+On the lef side, Under API --> Service methods, click on "getContacts" and then click "Send":
+![Get Contacts](screenshots/get_contacts.png)
+
+As a result, you will get the list of Contacts and Groups.
+* The contact number ends with **@c.us**
+* The group number ends with **@g.us**
+
+![Contacts Lists](screenshots/contacts_list.png)
+
+Write down the Id, you will need it to configure the notification.
+
+
+## Installing the library
 
 To use the GreenApi library in your Arduino projects, follow these steps:
 
