@@ -9,13 +9,19 @@ GreenApi::GreenApi(const char* instanceId, const char* instanceToken) {
 String GreenApi::sendMessage(const char* target, const char* message) {
     // Create the payload as a String
     String payload = "{\"chatId\": \"" + String(target) + "\", \"message\": \"" + String(message) + "\"}";
-    const char* payloadChar = payload.c_str(); // Convert payload to const char* for use in HTTPClient
+
+    // Green-API is served over HTTPS. Use a secure client and pass it to
+    // HTTPClient::begin(client, url) -- the one begin() signature that works
+    // identically on both ESP32 and ESP8266. setInsecure() skips certificate
+    // validation (no cert pinning), keeping the library portable and small.
+    WiFiClientSecure client;
+    client.setInsecure();
 
     HTTPClient http;
-    http.begin(_urlBase); // Specify request destination
+    http.begin(client, _urlBase); // Specify request destination
     http.addHeader("Content-Type", "application/json"); // Specify content-type header
 
-    int httpResponseCode = http.POST(payloadChar); // Send the POST request
+    int httpResponseCode = http.POST(payload); // Send the POST request
 
     String response; // Initialize an empty string to hold the response
     if (httpResponseCode > 0) {
