@@ -6,6 +6,34 @@ The GreenApi Arduino Library allows you to easily send WhatsApp messages from yo
 
 The GreenApi library provides a simple interface to interact with the Green-API service for sending WhatsApp messages. It abstracts away the complexities of HTTP requests and JSON formatting, allowing you to focus on your project's functionality.
 
+## Supported boards
+
+The library works on both **ESP32** and **ESP8266**. It automatically selects the
+correct WiFi/HTTP client headers for the board you compile for, so the same sketch
+runs on either chip — just include the matching WiFi header in your own sketch
+(`<WiFi.h>` for ESP32, `<ESP8266WiFi.h>` for ESP8266). Green-API is served over
+HTTPS; the library uses a secure client with certificate validation disabled
+(`setInsecure()`) so no certificate needs to be provisioned on the device.
+
+## Security note (TLS)
+
+For portability and zero setup, the library connects with certificate
+validation **disabled** (`WiFiClientSecure::setInsecure()`). The connection is
+still encrypted, but the device does **not** verify the server's identity. On a
+compromised or man-in-the-middle network an attacker could intercept the TLS
+session and read the request — which includes your Green-API instance token (in
+the URL) and the message contents.
+
+This is a deliberate default: pinning a certificate in the library would break
+message sending whenever Green-API rotates its certificate. If you need the
+device to reject invalid or forged certificates, validate against Green-API's
+root CA instead of calling `setInsecure()`:
+
+- **ESP32:** `client.setCACert(rootCA);` (PEM string of the root CA).
+- **ESP8266:** use `BearSSL::WiFiClientSecure` with
+  `client.setTrustAnchors(&cert);` (or `client.setFingerprint(...)`), keeping in
+  mind a pinned fingerprint must be updated on every certificate rotation.
+
 
 ## Getting started
 
@@ -72,7 +100,11 @@ Here's a simple example sketch demonstrating how to use the GreenApi library to 
 
 ```cpp
 #include <Arduino.h>
-#include <WiFi.h> // Include WiFi library if connecting to WiFi
+#if defined(ESP32)
+  #include <WiFi.h>          // ESP32 WiFi library
+#elif defined(ESP8266)
+  #include <ESP8266WiFi.h>   // ESP8266 WiFi library
+#endif
 #include <GreenApi.h>
 
 const char* ssid = "YourWiFiSSID";
