@@ -70,52 +70,52 @@ chip — just include the matching WiFi header in your own sketch (`<WiFi.h>` fo
 
 Navigate to [green-api.com](https://green-api.com/en) and register for a new account:
 
-<div align="center"><img src="screenshots/register.png" width="440" alt="Register"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/register.png" width="440" alt="Register"></div>
 
 Fill in your details and click **Register**:
 
-<div align="center"><img src="screenshots/create_acoount.png" width="620" alt="Create account"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/create_acoount.png" width="620" alt="Create account"></div>
 
 Click **Create an instance**:
 
-<div align="center"><img src="screenshots/create_instance.png" width="640" alt="Create instance"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/create_instance.png" width="640" alt="Create instance"></div>
 
 Select the **Developer** instance (free):
 
-<div align="center"><img src="screenshots/developer_instance.png" width="640" alt="Developer instance"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/developer_instance.png" width="640" alt="Developer instance"></div>
 
 Copy the **Instance ID** and **Token** — you'll need them for the integration:
 
-<div align="center"><img src="screenshots/instance_details.png" width="640" alt="Instance details"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/instance_details.png" width="640" alt="Instance details"></div>
 
 Now link your WhatsApp with Green-API. In the left menu, under **API → Account**, click **QR**,
 then copy the QR URL into your browser and click **Scan QR code**:
 
-<div align="center"><img src="screenshots/send_qr.png" width="640" alt="Send QR"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/send_qr.png" width="640" alt="Send QR"></div>
 
-<div align="center"><img src="screenshots/scan_qr.png" width="640" alt="Scan QR"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/scan_qr.png" width="640" alt="Scan QR"></div>
 
 Scan the QR code to link your WhatsApp with Green-API:
 
-<div align="center"><img src="screenshots/qr.png" width="400" alt="QR code"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/qr.png" width="400" alt="QR code"></div>
 
 Once linked, the instance header shows a green light indicating it is active:
 
-<div align="center"><img src="screenshots/active_instance.png" width="640" alt="Active instance"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/active_instance.png" width="640" alt="Active instance"></div>
 
 ### Get contact and group IDs
 
 Before sending messages, you need the recipient's ID. In the left menu, under
 **API → Service methods**, click **getContacts**, then **Send**:
 
-<div align="center"><img src="screenshots/get_contacts.png" width="640" alt="Get contacts"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/get_contacts.png" width="640" alt="Get contacts"></div>
 
 You'll get back a list of contacts and groups:
 
 - Contact IDs end with **`@c.us`**
 - Group IDs end with **`@g.us`**
 
-<div align="center"><img src="screenshots/contacts_list.png" width="640" alt="Contacts list"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/t0mer/GreenApi-WhatsApp-Library/main/screenshots/contacts_list.png" width="640" alt="Contacts list"></div>
 
 Note down the ID you want to message — you'll pass it to `sendMessage()`.
 
